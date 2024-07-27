@@ -10,3 +10,17 @@ span {
   padding: 3px;
   color: rgb(255, 255, 255);
 }
+
+button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #5d9bc1;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: #5d9bc16f;
+}

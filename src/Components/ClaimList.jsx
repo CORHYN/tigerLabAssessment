@@ -69,6 +69,7 @@ export function ClaimList() {
     <>
       <div className={styles.flex}>
         <form
+          className={styles["form-search"]}
           onSubmit={(e) => {
             e.preventDefault();
             const lowercasedSearchValue = searchValue.toLowerCase();
