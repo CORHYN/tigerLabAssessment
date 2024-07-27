@@ -1,0 +1,83 @@
+html {
+  background: rgb(255, 178, 0);
+  background: linear-gradient(
+    90deg,
+    rgb(255, 178, 0, 1) 0%,
+    rgba(235, 91, 0, 1) 25%,
+    rgba(228, 0, 58, 1) 75%,
+    rgba(182, 0, 113, 1) 100%
+  );
+  overscroll-behavior: none;
+}
+
+.titan-one-regular {
+  font-family: "Titan One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(to right, #000000, #0000006d, #00000058);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar h2 {
+  margin-left: 20px;
+}
+.options {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 12vw;
+}
+
+.options a {
+  text-decoration: none;
+}
+
+.options a:after {
+  text-decoration: none;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: scroll;
+}
+
+.nav-bar {
+  width: 100%;
+  background-color: #f3feb8;
+}
+
+@media screen and (max-width: 600px) {
+  #root {
+    flex-direction: column;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.font-nunito {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5vh 10vw 5vh 10vw;
+}
