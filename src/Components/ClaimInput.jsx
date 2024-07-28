@@ -2,7 +2,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "../Style/CreateInput.module.css";
+import styles from "../Style/CreateInput.module.css";
 
 export default function ClaimInput({
   handleSubmit,
@@ -17,9 +17,10 @@ export default function ClaimInput({
     <form onSubmit={handleSubmit}>
       <label htmlFor="claim-amount">Claim Amount</label>
       <input
+        className={styles["non-date-field"]}
         type="text"
         name="amount"
-        id="claimA-aount"
+        id="claim-amount"
         onChange={handleDecimalInput}
         pattern="^[0-9]*\.[0-9][0-9]$"
         required
@@ -29,6 +30,7 @@ export default function ClaimInput({
       ) : null}
       <label htmlFor="holder-name">Holder Name</label>
       <input
+        className={styles["non-date-field"]}
         type="text"
         name="holder"
         id="holder-name"
@@ -37,6 +39,7 @@ export default function ClaimInput({
       />
       <label htmlFor="policy-number">Policy Number</label>
       <input
+        className={styles["non-date-field"]}
         type="text"
         name="policyNumber"
         id="policy-number"
@@ -45,6 +48,7 @@ export default function ClaimInput({
       />
       <label htmlFor="insured-item">Insured Item</label>
       <input
+        className={styles["non-date-field"]}
         type="text"
         name="insuredName"
         id="insured-item"
@@ -54,6 +58,7 @@ export default function ClaimInput({
 
       <label htmlFor="description">Discription</label>
       <input
+        className={styles["non-date-field"]}
         type="text"
         name="description"
         id="description"
@@ -62,6 +67,7 @@ export default function ClaimInput({
       />
       <label htmlFor="processing-fee">Processing fee</label>
       <input
+        className={styles["non-date-field"]}
         type="text"
         name="processingFee"
         id="processingF-fe"
@@ -88,7 +94,7 @@ export default function ClaimInput({
         required
       />
 
-      <button>Submit</button>
+      <button className={styles["submit-button"]}>Submit</button>
     </form>
   );
 }

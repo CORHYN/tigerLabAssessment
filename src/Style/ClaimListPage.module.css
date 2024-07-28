@@ -1,0 +1,11 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5vh 10vw 5vh 10vw;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+}

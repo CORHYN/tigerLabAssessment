@@ -3,15 +3,16 @@ form {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 span {
   font-size: 12px;
   padding: 3px;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
 }
 
-button {
+.submit-button {
   padding: 8px 12px;
   border: none;
   background-color: #5d9bc1;
@@ -19,8 +20,24 @@ button {
   cursor: pointer;
   border-radius: 4px;
   font-family: inherit;
+  width: 62%;
+  margin-top: 4vh;
 }
 
-button:hover {
+.submit-button:hover {
   background-color: #5d9bc16f;
+}
+
+.non-date-field {
+  text-align: center;
+  width: 56%;
+}
+
+input {
+  text-align: center;
+  margin: 2vh 0vw 2vh 0vw;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
 }

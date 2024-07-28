@@ -32,6 +32,7 @@ export function ClaimList() {
       holder,
       policyNumber,
       insuredItem,
+      insuredName,
       description,
       processingFee,
       status,
@@ -47,7 +48,7 @@ export function ClaimList() {
         <td>{amount}</td>
         <td>{holder}</td>
         <td>{policyNumber}</td>
-        <td>{insuredItem}</td>
+        <td>{insuredItem || insuredName}</td>
         <td>{description}</td>
         <td>{processingFee}</td>
         <td>{status}</td>

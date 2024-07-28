@@ -3,6 +3,8 @@ import { useState } from "react";
 import ClaimInput from "./Components/ClaimInput";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import styles from "./Style/CreateClaimPage.module.css";
+import { Navigate } from "react-router-dom";
 
 export default function CreateClaimPage() {
   const [decimalValidate, setdecimalValidate] = useState({
@@ -49,10 +51,14 @@ export default function CreateClaimPage() {
     mutation.mutate(newClaim);
   };
 
+  if (mutation.isSuccess) {
+    return <Navigate to="/ClaimList" />;
+  }
   return (
     <>
       <TopBar />
-      <div className="flex-container">
+      <div className={styles["flex-container"]}>
+        <h2>Create New Claim</h2>
         <ClaimInput
           handleSubmit={handleSubmit}
           handleChange={handleChange}
