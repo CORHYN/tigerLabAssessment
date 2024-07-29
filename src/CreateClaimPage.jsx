@@ -47,13 +47,17 @@ export default function CreateClaimPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newClaim = Object.fromEntries(new FormData(e.currentTarget));
-    console.log(newClaim);
     mutation.mutate(newClaim);
   };
 
   if (mutation.isSuccess) {
     return <Navigate to="/ClaimList" />;
   }
+
+  if (mutation.isError) {
+    alert("An error occured please try again later");
+  }
+
   return (
     <>
       <TopBar />

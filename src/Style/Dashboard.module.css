@@ -1,0 +1,27 @@
+.dashboard {
+  text-align: center;
+  padding: 20px;
+  animation: slideDown 1s ease-out;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animation for sliding in from the top */
+@keyframes slideDown {
+  from {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h1,
+h4 {
+  margin: 0;
+}

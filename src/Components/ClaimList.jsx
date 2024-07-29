@@ -99,6 +99,7 @@ export function ClaimList() {
           className={styles["form-search"]}
           onSubmit={(e) => {
             e.preventDefault();
+            setSearchValue("");
           }}
         >
           <input
@@ -109,7 +110,7 @@ export function ClaimList() {
               setSearchValue(e.target.value);
             }}
           />
-          <button type="submit">Search</button>
+          <button type="submit">Clear</button>
         </form>
         <select
           id="status"
