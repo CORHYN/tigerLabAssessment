@@ -1,9 +1,13 @@
 export default function TopBar() {
   return (
     <nav className="nav-bar">
-      <h2 style={{ ["padding-left"]: "20px" }} className="titan-one-regular">
-        Insurance Site
-      </h2>
+      <a href="/">
+        <img
+          src="TigerLabAssessmentLogo.png"
+          alt="Company Logo"
+          style={{ marginLeft: "20px", width: "200px", height: "45px" }}
+        />
+      </a>
       <div className="options">
         <div className="option">
           <a href={`/ClaimList`} className="font-nunito">

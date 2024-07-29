@@ -64,7 +64,7 @@ select {
 button {
   padding: 8px 12px;
   border: none;
-  background-color: #4caf50;
+  background-color: #680747;
   color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -72,7 +72,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #c3195d;
 }
 
 select {
@@ -82,4 +82,38 @@ select {
 .error,
 .loading {
   font-family: inherit;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  list-style: none;
+  border-top: 1px solid #ddd;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination .active a {
+  background-color: #680747;
+  color: white;
+}
+
+.pagination .active a:hover {
+  background-color: #c3195d;
 }

@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import ReactPaginate from "react-paginate";
 import styles from "../Style/ClaimList.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,12 +16,37 @@ export function ClaimList() {
   const [searchValue, setSearchValue] = useState("");
   const [claims, setClaims] = useState([]);
   const [filter, setFilter] = useState("");
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 10;
 
   useEffect(() => {
     if (data) {
       setClaims(data);
     }
   }, [data]);
+
+  useEffect(() => {
+    setItemOffset(0);
+  }, [claims]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % claims.length;
+    setItemOffset(newOffset);
+  };
+
+  const filteredClaims = claims.filter((claim) => {
+    const lowercasedSearchValue = searchValue.toLowerCase();
+    const matchesSearchValue =
+      String(claim.id).toLowerCase() === lowercasedSearchValue ||
+      claim.holder.toLowerCase().includes(lowercasedSearchValue) ||
+      String(claim.policyNumber).toLowerCase().includes(lowercasedSearchValue);
+    const matchesStatus = filter === "" || claim.status === filter;
+    return matchesSearchValue && matchesStatus;
+  });
+
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = filteredClaims.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(filteredClaims.length / itemsPerPage);
 
   const tableItem = (
     {
@@ -73,18 +99,6 @@ export function ClaimList() {
           className={styles["form-search"]}
           onSubmit={(e) => {
             e.preventDefault();
-            const lowercasedSearchValue = searchValue.toLowerCase();
-            const filtered = data.filter((claim) => {
-              const matchesSearchValue =
-                String(claim.id).toLowerCase() === lowercasedSearchValue ||
-                claim.holder.toLowerCase().includes(lowercasedSearchValue) ||
-                String(claim.policyNumber).toLowerCase() ===
-                  lowercasedSearchValue;
-              const matchesStatus = filter === "" || claim.status === filter;
-              return matchesSearchValue && matchesStatus;
-            });
-
-            setClaims(filtered);
           }}
         >
           <input
@@ -136,8 +150,20 @@ export function ClaimList() {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>{claims && claims.map(tableItem)}</tbody>
+        <tbody>{currentItems.map(tableItem)}</tbody>
       </table>
+
+      <ReactPaginate
+        className={styles.pagination}
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        containerClassName={styles.pagination}
+        activeClassName={styles.active}
+      />
     </>
   );
 }
